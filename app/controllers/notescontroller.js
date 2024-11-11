@@ -1,68 +1,71 @@
 // NotesController.js
-import { AppState } from './AppState.js';
-import { NotesView } from './NotesView.js';
+// @ts-ignore
+import { AppState } from '../AppState.js';
+import { Note } from '../models/jotnotes.js';
+
 //  controler notes!
-export const NotesController = {
-    activeNoteId: null,
+export class NotesController {
 
-    Note() {
-        // enter and get notes from AppState
-        this.Notes();
+    constructor() {
+        console.log("is it working");
 
-        // Bind event listeners to buttons
-        document.getElementById('create-note-btn').addEventListener('click', () => this.createNote());
-        document.getElementById('save-note-btn').addEventListener('click', () => this.saveNote());
-        document.getElementById('delete-note-btn').addEventListener('click', () => this.deleteNote());
-    },
+    }
 
-    Notes() {
-        NotesView.renderNotes(AppState.notes);
-    },
+    // Note() {
+    //     // enter and get notes from AppState
+    //     this.Note();
+
+    //     // event listeners to buttons
+    //     document.getElementById('create-note-btn').addEventListener('click', () => this.createNote());
+    //     document.getElementById('save-note-btn').addEventListener('click', () => this.saveNote());
+    //     document.getElementById('delete-note-btn').addEventListener('click', () => this.deleteNote());
+    // }
+
+    // Notes() {
+    //     // NotesView.Notes(AppState.notes);
+    // }
 
     createNote() {
-        const title = document.getElementById('note-title').value;
-        const body = document.getElementById('note-body').value;
-        const color = document.getElementById('note-color').value;
+        event.preventDefault() // stops the page from reloading
+        // @ts-ignore
+        const title = document.getElementById('title').value;
+        // @ts-ignore
+        const color = document.getElementById('color').value;
 
-        if (title.length < 3 || title.length > 15) {
-            alert('Title must be between 3 and 15 characters.');
-            return;
-        }
+        console.log(title, color);
+        // lets take this form data and turn it into a note.
 
-        const newNote = {
-            id: Date.now().toString(), // Use timestamp as unique ID
-            title,
-            body,
-            color,
-            createdAt: new Date().toString(),
-            updatedAt: new Date().toString()
-        };
+        // SHOULD NOT STAY HERE
+        //    v address        v the actual house   v raw materials
+        const note = new Note({ title, color })
+        console.log(note);
+        AppState.notes.push(note)
 
-        AppState.addNote(newNote);
-        NotesView.clearInputs();
-        this.renderNotes();
-    },
 
-    saveNote() {
-        const body = document.getElementById('edit-body').value;
 
-        if (this.activeNoteId) {
-            AppState.updateNote(this.activeNoteId, body);
-            NotesView.clearInputs();
-            this.renderNotes();
-        }
-    },
 
-    deleteNote() {
-        if (confirm('Are you sure you want to delete this note?') && this.activeNoteId) {
-            AppState.deleteNote(this.activeNoteId);
-            NotesView.clearInputs();
-            this.renderNotes();
-        }
-    },
-
-    setActiveNote(note) {
-        this.activeNoteId = note.id;
-        NotesView.renderNoteDetails(note);
     }
+
+    // saveNote() {
+    //     const body = document.getElementById('edit-body').value;
+
+    //     if (this.activeNoteId) {
+    //         AppState.updateNote(this.activeNoteId, body);
+    //         NotesView.clearInputs();
+    //         this.Notes();
+    //     }
+    // }
+
+    // deleteNote() {
+    //     if (confirm('Are you sure you want to delete this note?') == this.activeNoteId) {
+    //         AppState.deleteNote(this.activeNoteId);
+    //         NotesView.clearInputs();
+    //         this.Notes();
+    //     }
+    // }
+
+    // setActiveNote(note) {
+    //     this.activeNoteId = note.id;
+    //     NotesView.NoteDetails(note);
+    // }
 };

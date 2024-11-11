@@ -46,45 +46,35 @@
 
 <h1>Hard Notes</h1>
 
-<div>
+<form onsubmit="app.NotesController.createNote()">
   <h2>Jot Notes Here</h2>
-  <label for="note-title">Title (3-15 characters): </label>
-  <input type="text" id="note-title" /><br /><br />
-
-  <label for="note-body">Body: </label>
-  <textarea id="note-body"></textarea><br /><br />
-  <div></div>
-  <label for="note-color">Select Color: </label>
-  <select id="note-color">
+  <div>
+    <label for="title">Title (3-15 characters): </label>
+    <input type="text" placeholder="title" name="title" id="title" required minlength="3" maxlength="15" />
+  </div>
+  <label for="color">Select Color: </label>
+  <select name="color" id="color" title="pick a color">
     <option value="blue">Blue</option>
     <option value="green">Green</option>
     <option value="purple">purple</option>
     <option value="yellow">Yellow</option>
     <option value="pink">Pink</option>
-  </select><br /><br />
+  </select>
 
-  <button id="create-note-btn">Create Note</button>
-</div>
+  <button type="submit" id="create-note-btn">Create Note</button>
+</form>
 
 <h2>Notes List</h2>
-<ul id="notes-container"></ul>
 <div id="note-count">Total Notes: 0</div>
+<ul id="notes-container"></ul>
 
-<div class="note-detail">
+<!-- <form class="note-detail">
   <h3>Edit Note</h3>
   <input type="text" id="edit-title" />
-  <textarea id="edit-body" name="edit-body"></textarea><br />
+  <textarea id="edit-body" name="edit-body"></textarea>
   <button id="save-note-btn">Save Changes</button>
   <button id="delete-note-btn">Delete Note</button>
-</div>
-
-
-
-
-
-
-
-
+</form> -->
 
 </main>
 
@@ -110,4 +100,3 @@
 </body>
 
 </html>
-<script src="app.js"></script>
