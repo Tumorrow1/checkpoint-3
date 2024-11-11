@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "name": ".vscode",
+      "path": ".vscode"
+    },
+    {
+      "name": "app",
+      "path": "app"
+    },
+    {
+      "name": "assets",
+      "path": "assets"
+    },
+    {
+      "name": "jot",
+      "path": "jot"
+    },
+    {
+      "name": "node_modules",
+      "path": "node_modules"
+    }
+  ]
+}

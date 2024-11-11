@@ -1,0 +1,57 @@
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .app {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .note-creation,
+  .note-detail {
+    margin-bottom: 20px;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+  .notes-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .notes-list li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .note-detail {
+    display: none;
+  }
+  
+  .note-detail.active {
+    display: block;
+  }
