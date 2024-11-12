@@ -2,6 +2,7 @@
 // @ts-ignore
 import { AppState } from '../AppState.js';
 import { Note } from '../models/jotnotes.js';
+import { notesService } from '../services/JotNotesService.js';
 
 //  controler notes!
 export class NotesController {
@@ -33,6 +34,7 @@ export class NotesController {
         const color = document.getElementById('color').value;
 
         console.log(title, color);
+        notesService
         // lets take this form data and turn it into a note.
 
         // SHOULD NOT STAY HERE
@@ -47,9 +49,12 @@ export class NotesController {
     }
 
     // saveNote() {
-    //     const body = document.getElementById('edit-body').value;
+    //     event.preventDefault()
+    //     console.log();
 
-    //     if (this.activeNoteId) {
+    //     const body = document.getElementById('body').body;
+
+    //     if (this.NoteId) {
     //         AppState.updateNote(this.activeNoteId, body);
     //         NotesView.clearInputs();
     //         this.Notes();

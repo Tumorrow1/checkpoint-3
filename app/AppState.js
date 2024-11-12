@@ -1,6 +1,8 @@
 import { EventEmitter } from './utils/EventEmitter.js'
 import { createObservableProxy } from './utils/ObservableProxy.js'
 import { Note } from './models/jotnotes.js'
+import { notesService } from './services/JotNotesService.js'
+
 class ObservableAppState extends EventEmitter {
   // top npjepfojepoje
   notes = [
